@@ -1,4 +1,4 @@
-# 🧩 Jenkins — Introduction (Day 1)
+# 🧩 Jenkins — Introduction 
 
 ---
 
