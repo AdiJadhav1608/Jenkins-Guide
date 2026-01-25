@@ -1,4 +1,4 @@
-# ⚙️ Jenkins — Installation & Setup (Day 2)
+# ⚙️ Jenkins — Installation & Setup 
 
 ---
 
