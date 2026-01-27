@@ -101,7 +101,7 @@ Understanding Jenkins UI helps you:
 ---
 
 # 🤝 Contribute
-
+Add more commands, diagrams, or revision notes to help learners revise Docker faster.
 
 ---
 
