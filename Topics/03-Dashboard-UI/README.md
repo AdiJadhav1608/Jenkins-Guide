@@ -1,4 +1,4 @@
-# 🖥️ Jenkins — Dashboard & User Interface (Day 3)
+# 🖥️ Jenkins — Dashboard & User Interface 
 
 ---
 
