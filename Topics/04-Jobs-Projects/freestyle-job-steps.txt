@@ -1,0 +1,12 @@
+Jenkins Freestyle Job Configuration Steps
+
+1. Open Jenkins Dashboard
+2. Click "New Item"
+3. Enter Job Name
+4. Select "Freestyle project"
+5. Click OK
+6. Configure:
+   - Source Code Management (Git)
+   - Build Triggers (Webhook / Poll SCM)
+   - Build Steps (Shell / Batch)
+7. Save and Build
