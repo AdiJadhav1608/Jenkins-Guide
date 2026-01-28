@@ -17,4 +17,4 @@
 ## 🧠 Key Takeaways
 - Pipeline jobs are **industry standard**
 - Multibranch pipelines simplify Git workflows
-- Freestyle is good for learning, not production
+- 
