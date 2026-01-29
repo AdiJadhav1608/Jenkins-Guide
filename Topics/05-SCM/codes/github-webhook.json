@@ -1,0 +1,28 @@
+{
+  "name": "web",
+  "active": true,
+  "events": [
+    "push"
+  ],
+  "config": {
+    "url": "http://<jenkins-url>/github-webhook/",
+    "content_type": "json"
+  }
+}
+
+
+
+
+
+
+🧠 Detailed Explanation
+"events": ["push"] → Trigger Jenkins on every push
+
+"url" → Jenkins webhook endpoint
+
+"content_type": "json" → Standard GitHub payload format
+
+Enables real-time build triggering
+
+✅ Eliminates unnecessary polling
+✅ Faster feedback loop
