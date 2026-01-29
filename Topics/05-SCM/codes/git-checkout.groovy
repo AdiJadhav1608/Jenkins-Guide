@@ -13,3 +13,24 @@ pipeline {
 }
 
 
+🧠 Detailed Explanation
+
+pipeline {} → Declarative pipeline syntax
+
+agent any → Run on any available Jenkins agent
+
+stage('Checkout Source Code') → Logical step name
+
+git step:
+
+branch → Branch to checkout
+
+url → Git repository URL
+
+✅ Jenkins automatically:
+
+Clones the repository
+
+Places code inside the workspace
+
+Tracks commit history for builds
