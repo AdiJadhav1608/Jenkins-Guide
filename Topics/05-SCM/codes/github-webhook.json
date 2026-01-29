@@ -15,14 +15,3 @@
 
 
 
-🧠 Detailed Explanation
-"events": ["push"] → Trigger Jenkins on every push
-
-"url" → Jenkins webhook endpoint
-
-"content_type": "json" → Standard GitHub payload format
-
-Enables real-time build triggering
-
-✅ Eliminates unnecessary polling
-✅ Faster feedback loop
