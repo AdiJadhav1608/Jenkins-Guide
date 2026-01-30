@@ -1,0 +1,47 @@
+# ⏰ Jenkins Cron Build Trigger
+# This file explains how to use cron syntax in Jenkins
+# to trigger jobs automatically at fixed intervals.
+
+# -------------------------------
+# 🔹 CRON SYNTAX USED
+# -------------------------------
+
+H/5 * * * *
+
+# -------------------------------
+# 🔹 FIELD-WISE EXPLANATION
+# -------------------------------
+
+# ┌──────── Minute (0 - 59)
+# │ ┌────── Hour (0 - 23)
+# │ │ ┌──── Day of Month (1 - 31)
+# │ │ │ ┌── Month (1 - 12)
+# │ │ │ │ ┌─ Day of Week (0 - 7)
+# │ │ │ │ │
+# H/5 * * * *
+
+# -------------------------------
+# 🔹 WHAT THIS MEANS
+# -------------------------------
+
+# H/5  → Run every 5 minutes (H = hash, prevents overload)
+# *    → Every hour
+# *    → Every day of the month
+# *    → Every month
+# *    → Every day of the week
+
+# -------------------------------
+# 🔹 WHY JENKINS USES "H"
+# -------------------------------
+
+# Jenkins replaces "H" with a stable hash value
+# so that multiple jobs don't start at the same time.
+# This improves performance and avoids server overload.
+
+# -------------------------------
+# 🔹 COMMON JENKINS CRON EXAMPLES
+# -------------------------------
+
+# 0 0 * * *     → Run daily at midnight
+# H 2 * * 1-5   → Run at 2 AM on weekdays
+# H */4 * * *   → Run every 4 hours
