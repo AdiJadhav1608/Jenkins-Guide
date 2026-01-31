@@ -1,0 +1,42 @@
+/*
+===========================================
+🚀 SIMPLE JENKINS DECLARATIVE PIPELINE
+===========================================
+
+This Jenkinsfile demonstrates:
+✔ Basic pipeline structure
+✔ Single stage execution
+✔ Command execution using shell
+*/
+
+pipeline {
+
+    // 🔹 Defines where the pipeline will run
+    agent any
+
+    // 🔹 Pipeline stages
+    stages {
+
+        stage('Build') {
+
+            steps {
+
+                // 🔸 Executes shell command
+                echo 'Building the application...'
+            }
+        }
+    }
+}
+
+/*
+--------------------------------------------
+🧠 EXPLANATION
+--------------------------------------------
+
+pipeline      → Mandatory block for Declarative Pipeline
+agent any     → Run on any available Jenkins agent
+stages        → Contains all stages
+stage('Build')-> Logical phase of the pipeline
+steps         → Actual commands executed
+echo          → Prints message in Jenkins console
+*/
