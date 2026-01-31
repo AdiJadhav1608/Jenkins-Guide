@@ -1,0 +1,56 @@
+/*
+===========================================
+🚀 MULTI-STAGE JENKINS PIPELINE
+===========================================
+
+This pipeline shows a complete CI flow:
+✔ Build
+✔ Test
+✔ Deploy
+*/
+
+pipeline {
+
+    // 🔹 Run pipeline on any agent
+    agent any
+
+    stages {
+
+        stage('Build') {
+            steps {
+                echo 'Compiling source code...'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running unit tests...'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying application...'
+            }
+        }
+    }
+}
+
+/*
+--------------------------------------------
+🧠 STAGE-WISE EXPLANATION
+--------------------------------------------
+
+Build Stage  → Prepares application (compile/build)
+Test Stage   → Validates code quality
+Deploy Stage → Releases application
+
+--------------------------------------------
+📌 KEY BENEFITS
+--------------------------------------------
+
+✔ Clear separation of tasks
+✔ Easy debugging
+✔ Real-world CI/CD flow
+✔ Scalable for production pipelines
+*/
