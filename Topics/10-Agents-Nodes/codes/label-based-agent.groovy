@@ -33,5 +33,5 @@ Only matching nodes → Will run pipeline
 Useful for OS-specific builds
 
 ✔ Linux / Windows separation
-✔ Tool-specific nodes
+
 */
