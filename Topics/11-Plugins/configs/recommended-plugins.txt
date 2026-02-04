@@ -1,0 +1,55 @@
+===========================================
+🔌 RECOMMENDED JENKINS PLUGINS LIST
+===========================================
+
+# -------------------------------
+# 🔹 CORE & PIPELINE PLUGINS
+# -------------------------------
+
+Pipeline
+Pipeline: Stage View
+Pipeline: GitHub
+Blue Ocean
+
+# -------------------------------
+# 🔹 SCM INTEGRATION
+# -------------------------------
+
+Git
+GitHub Integration
+GitHub Branch Source
+
+# -------------------------------
+# 🔹 BUILD & AUTOMATION
+# -------------------------------
+
+Credentials Binding
+Workspace Cleanup
+Parameterized Trigger
+
+# -------------------------------
+# 🔹 SECURITY & MANAGEMENT
+# -------------------------------
+
+Role-based Authorization Strategy
+Matrix Authorization Strategy
+
+# -------------------------------
+# 🔹 CONTAINER & CLOUD
+# -------------------------------
+
+Docker
+Docker Pipeline
+Kubernetes
+
+# -------------------------------
+# 🧠 EXPLANATION
+# -------------------------------
+
+Pipeline plugins       → Enable Jenkinsfile execution
+Blue Ocean             → Modern pipeline UI
+Git / GitHub plugins   → Source control integration
+Credentials Binding    → Secure secrets handling
+Docker / Kubernetes    → Container-based builds
+
+📌 Install plugins based on project needs only.
