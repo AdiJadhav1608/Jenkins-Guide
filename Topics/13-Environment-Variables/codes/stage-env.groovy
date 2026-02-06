@@ -49,5 +49,5 @@ BUILD_TOOL       → Available only in Build
 TEST_TYPE        → Available only in Test
 
 ✔ Better variable scoping
-
+✔ Avoid accidental reuse
 */
