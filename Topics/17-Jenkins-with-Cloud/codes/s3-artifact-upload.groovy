@@ -80,19 +80,3 @@ pipeline {
 ----------------------------------------------
 s3://bucket-name/job-name/build-number/artifact-name
 
-----------------------------------------------
-🤝 CONTRIBUTE
-----------------------------------------------
-Add more commands, diagrams, or revision notes to help learners revise Docker faster.
-
-----------------------------------------------
-👨‍💻 AUTHOR
-----------------------------------------------
-Aditya Jadhav  
-Beginner Cloud & DevOps Learner  
-
-📧 adijadhav8446@gmail.com  
-🌐 https://github.com/AdiJadhav1608  
-🔗 https://www.linkedin.com/in/aditya-jadhav-718087339/  
-
-⭐ If you found this helpful, give it a star and keep learning Kubernetes!
