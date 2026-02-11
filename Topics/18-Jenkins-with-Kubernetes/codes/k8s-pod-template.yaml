@@ -1,0 +1,49 @@
+# ==================================================
+# Kubernetes Pod Template for Jenkins Dynamic Agent
+# ==================================================
+#
+# PURPOSE:
+# This Pod template is used by Jenkins Kubernetes Plugin
+# to dynamically create an agent Pod for running builds.
+#
+# WORKFLOW:
+# 1. Jenkins triggers a build.
+# 2. Kubernetes plugin reads this YAML.
+# 3. A Pod is created in the cluster.
+# 4. Build runs inside the defined container.
+# 5. Pod is deleted after completion.
+#
+# NOTE:
+# Docker socket mounting is not recommended in production.
+# Use Kaniko or BuildKit for secure image building.
+
+apiVersion: v1                # Kubernetes API version
+kind: Pod                     # Object type
+
+metadata:
+  name: jenkins-agent-pod     # Pod name (Jenkins may auto-generate unique name)
+  labels:
+    jenkins: agent            # Label used by Jenkins to identify agent pods
+
+spec:
+  containers:
+    - name: docker            # Container name (must match Jenkinsfile container())
+      image: docker:20.10.16  # Docker image used for build environment
+
+      command:
+        - cat                 # Keeps container alive so Jenkins can attach
+
+      tty: true               # Enables terminal support (required by Jenkins)
+
+      volumeMounts:
+        - name: docker-sock
+          mountPath: /var/run/docker.sock
+          # Mounts host Docker socket inside container
+          # Allows container to run Docker commands
+
+  volumes:
+    - name: docker-sock
+      hostPath:
+        path: /var/run/docker.sock
+        # Shares host Docker daemon with Pod
+        # NOT recommended for production clusters
