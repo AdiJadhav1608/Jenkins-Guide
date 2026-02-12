@@ -87,4 +87,3 @@ Permissions:
 
 ---
 
-🔒 Secure Jenkins = Secure CI/CD Pipeline
