@@ -115,6 +115,6 @@ In enterprise environments:
 - QA → #qa-alerts
 - Production → #prod-alerts
 
-This avoids noise and improves monitoring.
+
 =========================================================
 */
