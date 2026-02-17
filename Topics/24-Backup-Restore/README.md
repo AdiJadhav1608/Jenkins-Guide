@@ -133,16 +133,6 @@ Jenkins will load all jobs, plugins, and configurations automatically.
 
 ---
 
-# 📦 Folder Structure
-
-```
-24-Backup-Restore/
-│── README.md
-│── codes/
-│    └── jenkins-backup.sh
-│── configs/
-│    └── jcasc.yaml
-```
 
 - README.md → Backup & restore documentation
 - jenkins-backup.sh → Automated backup script
