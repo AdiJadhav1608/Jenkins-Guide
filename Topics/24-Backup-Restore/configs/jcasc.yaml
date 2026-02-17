@@ -1,0 +1,47 @@
+# =========================================================
+# ⚙️ Jenkins Configuration as Code (JCasC)
+# =========================================================
+# Purpose:
+# - Define Jenkins configuration using YAML
+# - Enable quick disaster recovery
+# - Maintain version-controlled Jenkins setup
+# =========================================================
+
+jenkins:
+  systemMessage: "Jenkins configured automatically using JCasC - DevOps Setup 🚀"
+
+  # Number of executors (parallel builds)
+  numExecutors: 2
+
+  # Jenkins security settings
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: "admin"
+          password: "admin123"  # 🔐 Change in production
+
+  # Authorization strategy (role-based access)
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+
+unclassified:
+  location:
+    # Jenkins URL configuration
+    url: "http://localhost:8080/"
+    adminAddress: "admin@example.com"
+
+# =========================================================
+# 🔐 Security Warning (Important)
+# =========================================================
+# - Never hardcode real passwords in production
+# - Use environment variables or credentials
+# - Store secrets securely using Jenkins Credentials Plugin
+#
+# =========================================================
+# 🚀 Benefits of JCasC:
+# - Faster Jenkins setup
+# - Reproducible environments
+# - Easy migration & disaster recovery
+# =========================================================
