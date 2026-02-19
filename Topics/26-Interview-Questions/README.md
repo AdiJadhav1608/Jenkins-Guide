@@ -266,8 +266,4 @@ If you have more Jenkins interview questions, feel free to fork this repo and su
 
 # 👨‍💻 Author
 
-**Aditya Jadhav**  
-Beginner Cloud & DevOps Learner  
-📧 adijadhav8446@gmail.com  
-🌐 GitHub: https://github.com/AdiJadhav1608  
-🔗 LinkedIn: https://www.linkedin.com/in/aditya-jadhav-718087339/
+
