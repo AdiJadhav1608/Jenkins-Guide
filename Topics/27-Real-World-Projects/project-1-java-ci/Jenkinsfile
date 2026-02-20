@@ -1,0 +1,57 @@
+// Declarative Jenkins Pipeline for Java CI
+// This pipeline automates build and testing of a Java application
+
+pipeline {
+    // Use any available Jenkins agent (node) to run the pipeline
+    agent any
+
+    // Environment variables (can be customized)
+    environment {
+        MAVEN_HOME = '/usr/share/maven' // Path to Maven installation
+    }
+
+    stages {
+
+        stage('Checkout Code') {
+            steps {
+                // Pull source code from Git repository
+                echo 'Cloning the GitHub repository...'
+                git branch: 'main', url: 'https://github.com/your-repo/java-app.git'
+            }
+        }
+
+        stage('Build Application') {
+            steps {
+                // Compile the Java project using Maven
+                echo 'Building the Java application using Maven...'
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                // Execute unit tests to ensure code quality
+                echo 'Running unit tests...'
+                sh 'mvn test'
+            }
+        }
+
+        stage('Archive Artifacts') {
+            steps {
+                // Store the generated JAR/WAR file in Jenkins
+                echo 'Archiving build artifacts...'
+                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+            }
+        }
+    }
+
+    post {
+        // This block runs after pipeline execution
+        success {
+            echo 'CI Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Build failed! Please check logs.'
+        }
+    }
+}
