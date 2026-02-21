@@ -1,0 +1,59 @@
+// Jenkins CI/CD Pipeline for Dockerized Application
+// This pipeline builds, pushes, and deploys a Docker container
+
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_IMAGE = 'yourdockerhubusername/my-app'
+        DOCKER_CREDENTIALS = 'docker-credentials' // Jenkins stored credentials ID
+    }
+
+    stages {
+
+        stage('Checkout Code') {
+            steps {
+                // Clone the application source code from GitHub
+                echo 'Cloning repository...'
+                git branch: 'main', url: 'https://github.com/your-repo/docker-app.git'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                // Build Docker image using Dockerfile in the repo
+                echo 'Building Docker image...'
+                sh 'docker build -t $DOCKER_IMAGE .'
+            }
+        }
+
+        stage('Push Image to DockerHub') {
+            steps {
+                // Login securely and push image to DockerHub
+                echo 'Pushing Docker image to DockerHub...'
+                withCredentials([usernamePassword(credentialsId: DOCKER_CREDENTIALS, usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    sh 'echo $PASSWORD | docker login -u $USERNAME --password-stdin'
+                    sh 'docker push $DOCKER_IMAGE'
+                }
+            }
+        }
+
+        stage('Deploy Container') {
+            steps {
+                // Stop old container and run new one
+                echo 'Deploying Docker container...'
+                sh 'docker rm -f my-container || true'
+                sh 'docker run -d -p 80:80 --name my-container $DOCKER_IMAGE'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Docker CI/CD Pipeline executed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed. Check Jenkins logs.'
+        }
+    }
+}
