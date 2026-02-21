@@ -8,6 +8,3 @@ COPY . /usr/share/nginx/html
 
 # Expose port 80 for web traffic
 EXPOSE 80
-
-# Start Nginx server in foreground mode
-CMD ["nginx", "-g", "daemon off;"]
