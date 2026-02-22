@@ -1,0 +1,16 @@
+# Kubernetes Service Manifest
+# This file exposes the application to external users
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app-service
+spec:
+  type: NodePort  # Exposes service on a port of each node
+  selector:
+    app: my-app
+  ports:
+    - protocol: TCP
+      port: 80        # Service port
+      targetPort: 80  # Container port
+      nodePort: 30007 # External access port (30000–32767 range)
