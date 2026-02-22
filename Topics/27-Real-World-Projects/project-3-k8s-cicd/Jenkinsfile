@@ -1,0 +1,54 @@
+// Advanced Jenkins Pipeline for Kubernetes CI/CD Deployment
+
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_IMAGE = 'yourdockerhubusername/k8s-app'
+    }
+
+    stages {
+
+        stage('Checkout Code') {
+            steps {
+                // Clone repository containing app and Kubernetes manifests
+                echo 'Cloning GitHub repository...'
+                git branch: 'main', url: 'https://github.com/your-repo/k8s-app.git'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                // Build Docker image for the application
+                echo 'Building Docker image...'
+                sh 'docker build -t $DOCKER_IMAGE .'
+            }
+        }
+
+        stage('Push Docker Image') {
+            steps {
+                // Push image to DockerHub registry
+                echo 'Pushing image to DockerHub...'
+                sh 'docker push $DOCKER_IMAGE'
+            }
+        }
+
+        stage('Deploy to Kubernetes') {
+            steps {
+                // Apply Kubernetes manifests to deploy application
+                echo 'Deploying to Kubernetes cluster...'
+                sh 'kubectl apply -f k8s-manifests/deployment.yaml'
+                sh 'kubectl apply -f k8s-manifests/service.yaml'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Kubernetes CI/CD Deployment Successful!'
+        }
+        failure {
+            echo 'Deployment failed! Check kubectl and Jenkins logs.'
+        }
+    }
+}
