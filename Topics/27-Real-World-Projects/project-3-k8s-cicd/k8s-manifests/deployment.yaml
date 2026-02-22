@@ -1,0 +1,22 @@
+# Kubernetes Deployment Manifest
+# This file defines how the application pods should be created and managed
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app-deployment
+spec:
+  replicas: 2  # Number of pod replicas for high availability
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: my-app-container
+          image: yourdockerhubusername/k8s-app  # Docker image to deploy
+          ports:
+            - containerPort: 80  # Application running port inside container
